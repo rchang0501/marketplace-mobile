@@ -1,27 +1,53 @@
 import { View, Text, Image } from "react-native";
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
-export const ProductTitle = ({title, subTitle, titleSize, subTitleSize}) => {
+export const ProductTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
   return (
     <View style>
-      <Text style={{
-          fontFamily: FONTS.semiBold, 
-          fontSize: titleSize, 
+      <Text
+        style={{
+          fontFamily: FONTS.semiBold,
+          fontSize: titleSize,
           colors: COLORS.primary,
-      }} >{title}</Text>
-      <Text style={{
-          fontFamily: FONTS.regular, 
-          fontSize: subTitleSize, 
+        }}
+      >
+        {title}
+      </Text>
+      <Text
+        style={{
+          fontFamily: FONTS.regular,
+          fontSize: subTitleSize,
           colors: COLORS.primary,
-      }} >{subTitle}</Text>
+        }}
+      >
+        {subTitle}
+      </Text>
     </View>
   );
 };
 
-export const Price = () => {
+export const Price = ({ price }) => {
   return (
-    <View>
-      <Text>Price</Text>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+      }}
+    >
+      <Image
+        source={assets.eth}
+        resizeMode="contain"
+        style={{ width: 20, height: 20, marginRight: 2 }}
+      />
+      <Text
+        style={{
+          fontFamily: FONTS.medium,
+          fontSize: SIZES.font,
+          color: COLORS.primary,
+        }}
+      >
+        {price}
+      </Text>
     </View>
   );
 };
@@ -52,7 +78,7 @@ export const People = () => {
   );
 };
 
-export const EndDate = ({endTime}) => {
+export const EndDate = ({ endTime }) => {
   return (
     <View
       style={{
@@ -64,6 +90,7 @@ export const EndDate = ({endTime}) => {
         ...SHADOWS.light,
         elevation: 1,
         maxWidth: "50%",
+        borderRadius: SIZES.font,
       }}
     >
       <Text
@@ -88,7 +115,7 @@ export const EndDate = ({endTime}) => {
   );
 };
 
-export const SubInfo = ({data}) => {
+export const SubInfo = ({ data }) => {
   return (
     <View
       style={{

@@ -30,21 +30,35 @@ const ProductCard = ({ data }) => {
           }}
         />
 
-        <CircleButton imgUrl={assets.heart} right = {10} top = {10} />
+        <CircleButton imgUrl={assets.heart} right={10} top={10} />
       </View>
-      
-      <SubInfo data={data}/>
 
-      <View style={{
+      <SubInfo data={data} />
+
+      <View
+        style={{
           width: "100%",
-          padding: SIZES.font
-      }} >
-        <ProductTitle 
-            title={data.name}
-            subTitle={data.creator}
-            titleSize={SIZES.large}
-            subTitleSize={SIZES.small}
+          padding: SIZES.font,
+        }}
+      >
+        <ProductTitle
+          title={data.name}
+          subTitle={data.creator}
+          titleSize={SIZES.large}
+          subTitleSize={SIZES.small}
         />
+
+        <View
+          style={{
+            marginTop: SIZES.font,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Price price={data.price} />
+          <RectButton />
+        </View>
       </View>
     </View>
   );
