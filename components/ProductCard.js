@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { CircleButton, RectButton } from "./Button";
+import { SubInfo, Price, ProductTitle } from "./SubInfo";
 
 const ProductCard = ({ data }) => {
   const navigation = useNavigation();
@@ -31,6 +32,8 @@ const ProductCard = ({ data }) => {
 
         <CircleButton imgUrl={assets.heart} right = {10} top = {10} />
       </View>
+      
+      <SubInfo/>
     </View>
   );
 };
