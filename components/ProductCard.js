@@ -34,6 +34,18 @@ const ProductCard = ({ data }) => {
       </View>
       
       <SubInfo data={data}/>
+
+      <View style={{
+          width: "100%",
+          padding: SIZES.font
+      }} >
+        <ProductTitle 
+            title={data.name}
+            subTitle={data.creator}
+            titleSize={SIZES.large}
+            subTitleSize={SIZES.small}
+        />
+      </View>
     </View>
   );
 };
