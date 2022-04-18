@@ -33,7 +33,7 @@ const ProductCard = ({ data }) => {
         <CircleButton imgUrl={assets.heart} right = {10} top = {10} />
       </View>
       
-      <SubInfo/>
+      <SubInfo data={data}/>
     </View>
   );
 };

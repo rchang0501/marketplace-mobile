@@ -43,7 +43,7 @@ export const People = () => {
   );
 };
 
-export const EndDate = () => {
+export const EndDate = ({endTime}) => {
   return (
     <View
       style={{
@@ -73,13 +73,13 @@ export const EndDate = () => {
           color: COLORS.primary,
         }}
       >
-        12h 30m
+        {endTime}
       </Text>
     </View>
   );
 };
 
-export const SubInfo = () => {
+export const SubInfo = ({data}) => {
   return (
     <View
       style={{
@@ -91,7 +91,7 @@ export const SubInfo = () => {
       }}
     >
       <People />
-      <EndDate />
+      <EndDate endTime={data.endTime} />
     </View>
   );
 };
