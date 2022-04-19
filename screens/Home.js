@@ -1,22 +1,38 @@
 import { useState } from "react";
-import { View, SafeAreaView, FlatList, Text } from "react-native"; // FlatList is recycler view, SafeArea renders content in safe area boundary to make sure things fit on the screen, View is a div
+import { View, SafeAreaView, FlatList } from "react-native"; // FlatList is recycler view, SafeArea renders content in safe area boundary to make sure things fit on the screen, View is a div
 
 import { COLORS, ProductData } from "../constants";
 import { ProductCard, HomeHeader, FocusedStatusBar } from "../components";
 
 // SafeAreaView is like the outer div
 const Home = () => {
+  const [productData, setproductData] = useState(ProductData);
+
+  const handleSearch = (value) => {
+    if (!value.length) return setproductData(ProductData);
+
+    const filteredData = productData.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+
+    if (filteredData.length) {
+      setproductData(filteredData);
+    } else {
+      setproductData(ProductData);
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FocusedStatusBar background={COLORS.primary} />
       <View style={{ flex: 1 }}>
         <View style={{ zIndex: 0 }}>
           <FlatList
-            data={ProductData}
+            data={productData}
             renderItem={({ item }) => <ProductCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<HomeHeader />}
+            ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
           />
         </View>
         <View
