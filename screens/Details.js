@@ -79,10 +79,24 @@ const Details = ({ route, navigation }) => {
           <React.Fragment>
             <DetailsHeader data={data} navigation={navigation} />
             <SubInfo data={data} />
-            <View style={{
-                pading:SIZES.small
-            }} >
-                <DetailsDesc data= {data}/>
+            <View
+              style={{
+                pading: SIZES.small,
+              }}
+            >
+              <DetailsDesc data={data} />
+              {data.bids.length > 0 && (
+                <Text
+                  style={{
+                    fontSize: SIZES.font,
+                    fontFamily: FONTS.semiBold,
+                    color: COLORS.primary,
+                    paddingHorizontal: SIZES.font,
+                  }}
+                >
+                  Current Bids
+                </Text>
+              )}
             </View>
           </React.Fragment>
         )}
